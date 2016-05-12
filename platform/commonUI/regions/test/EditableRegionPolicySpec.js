@@ -37,7 +37,7 @@ define(
                 },
                 mockAllModesRegionPart = {};
 
-            beforeEach(function(){
+            beforeEach(function () {
                 editableRegionPolicy = new EditableRegionPolicy();
 
                 mockStatusCapability = jasmine.createSpyObj("statusCapability", [
@@ -49,19 +49,19 @@ define(
                 mockDomainObject.getCapability.andReturn(mockStatusCapability);
             });
 
-            it("includes only browse region parts for object not in edit mode", function() {
+            it("includes only browse region parts for object not in edit mode", function () {
                 mockStatusCapability.get.andReturn(false);
                 expect(editableRegionPolicy.allow(mockBrowseRegionPart, mockDomainObject)).toBe(true);
                 expect(editableRegionPolicy.allow(mockEditRegionPart, mockDomainObject)).toBe(false);
             });
 
-            it("includes only edit region parts for object in edit mode", function() {
+            it("includes only edit region parts for object in edit mode", function () {
                 mockStatusCapability.get.andReturn(true);
                 expect(editableRegionPolicy.allow(mockBrowseRegionPart, mockDomainObject)).toBe(false);
                 expect(editableRegionPolicy.allow(mockEditRegionPart, mockDomainObject)).toBe(true);
             });
 
-            it("includes region parts with no mode specification", function() {
+            it("includes region parts with no mode specification", function () {
                 mockStatusCapability.get.andReturn(false);
                 expect(editableRegionPolicy.allow(mockAllModesRegionPart, mockDomainObject)).toBe(true);
                 mockStatusCapability.get.andReturn(true);

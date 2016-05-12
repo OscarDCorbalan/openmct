@@ -83,7 +83,7 @@ define(
 
             //Register a listener to automatically cancel this edit action
             //if the user navigates away from this object.
-            function cancelEditing(navigatedTo){
+            function cancelEditing(navigatedTo) {
                 if (!navigatedTo || navigatedTo.getId() !== self.domainObject.getId()) {
                     self.domainObject.getCapability('editor').cancel();
                     self.navigationService.removeListener(cancelEditing);

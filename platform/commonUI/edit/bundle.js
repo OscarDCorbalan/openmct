@@ -275,7 +275,7 @@ define([
             ],
             "constants": [
                 {
-                    "key":"editModeBlacklist",
+                    "key": "editModeBlacklist",
                     "value": ["copy", "follow", "window", "link", "locate"]
                 },
                 {

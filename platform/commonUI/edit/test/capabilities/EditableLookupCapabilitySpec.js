@@ -47,7 +47,7 @@ define(
                 );
                 mockTestObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel", "getCapability" ]
+                    ["getId", "getModel", "getCapability"]
                 );
                 factory = {
                     getEditableObject: function (v) {
@@ -117,9 +117,9 @@ define(
             });
 
             it("wraps inherited methods", function () {
-                var CapabilityClass = function(){
+                var CapabilityClass = function () {
                 };
-                CapabilityClass.prototype.inheritedMethod=function () {
+                CapabilityClass.prototype.inheritedMethod = function () {
                     return "an inherited method";
                 };
 

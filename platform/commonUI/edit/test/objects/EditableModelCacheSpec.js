@@ -41,11 +41,11 @@ define(
 
                 mockObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel" ]
+                    ["getId", "getModel"]
                 );
                 mockOtherObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel" ]
+                    ["getId", "getModel"]
                 );
 
                 mockObject.getId.andReturn(testId);

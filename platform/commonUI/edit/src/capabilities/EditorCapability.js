@@ -100,14 +100,14 @@ define(
             if (nonrecursive) {
                 returnPromise = resolvePromise(doMutate())
                     .then(doPersist)
-                    .then(function(){
+                    .then(function () {
                         self.cancel();
                     });
             } else {
                 returnPromise = resolvePromise(cache.saveAll());
             }
             //Return the original (non-editable) object
-            return returnPromise.then(function() {
+            return returnPromise.then(function () {
                 return domainObject.getOriginalObject ? domainObject.getOriginalObject() : domainObject;
             });
         };

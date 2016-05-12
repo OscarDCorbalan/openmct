@@ -38,10 +38,10 @@ define(
                 // methods for domain objects, so give it an
                 // arbitrary interface to wrap.
                 mockContext =
-                    jasmine.createSpyObj("context", [ "getDomainObject" ]);
+                    jasmine.createSpyObj("context", ["getDomainObject"]);
                 mockTestObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel", "getCapability" ]
+                    ["getId", "getModel", "getCapability"]
                 );
                 mockFactory =
                     jasmine.createSpyObj("factory", ["getEditableObject"]);

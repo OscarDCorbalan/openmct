@@ -91,7 +91,9 @@ define(
                 var editableObject = Object.create(domainObject);
 
                 // Only provide the cloned model.
-                editableObject.getModel = function () { return model; };
+                editableObject.getModel = function () {
+                    return model;
+                };
 
                 // Override certain capabilities
                 editableObject.getCapability = function (name) {
@@ -108,11 +110,11 @@ define(
                 };
 
 
-                editableObject.setOriginalObject = function(object) {
+                editableObject.setOriginalObject = function (object) {
                     originalObject = object;
                 };
 
-                editableObject.getOriginalObject = function() {
+                editableObject.getOriginalObject = function () {
                     return originalObject;
                 };
 

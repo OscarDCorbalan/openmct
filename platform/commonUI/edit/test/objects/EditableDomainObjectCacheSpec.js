@@ -36,8 +36,12 @@ define(
             // Constructors for test objects
             function TestObject(id) {
                 return {
-                    getId: function () { return id; },
-                    getModel: function () { return {}; },
+                    getId: function () {
+                        return id;
+                    },
+                    getModel: function () {
+                        return {};
+                    },
                     getCapability: function (key) {
                         return {
                             editor: completionCapability,

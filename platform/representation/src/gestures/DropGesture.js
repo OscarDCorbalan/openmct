@@ -44,7 +44,7 @@ define(
                 editableDomainObject,
                 scope = element.scope && element.scope(),
                 action; // Action for the drop, when it occurs
-            
+
             function broadcastDrop(id, event) {
                 // Find the relevant scope...
                 var rect;
@@ -76,7 +76,7 @@ define(
                 // updates to the model
                 //Don't use EditableDomainObject for folders, allow immediate persistence
                 if (domainObject.hasCapability('editor') ||
-                    domainObject.getModel().type==='folder') {
+                    domainObject.getModel().type === 'folder') {
                     editableDomainObject = domainObject;
                 } else {
                     editableDomainObject = new EditableDomainObject(domainObject, $q);
@@ -117,7 +117,7 @@ define(
                     e.preventDefault();
                     $q.when(action && action.perform()).then(function (result) {
                         //Don't go into edit mode for folders
-                        if (domainObjectType!=='folder') {
+                        if (domainObjectType !== 'folder') {
                             editableDomainObject.getCapability('action').perform('edit');
                         }
                         broadcastDrop(id, event);

@@ -125,7 +125,7 @@ define(
         EditableDomainObjectCache.prototype.markClean = function (domainObject) {
             var self = this;
             if (!domainObject) {
-                Object.keys(this.dirtyObjects).forEach(function(key) {
+                Object.keys(this.dirtyObjects).forEach(function (key) {
                     delete self.dirtyObjects[key];
                 });
             } else {

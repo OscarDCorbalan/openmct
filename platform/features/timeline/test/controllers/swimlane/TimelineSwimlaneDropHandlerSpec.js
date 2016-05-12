@@ -38,28 +38,28 @@ define(
 
                 mockSwimlane = jasmine.createSpyObj(
                     "swimlane",
-                    [ "highlight", "highlightBottom" ]
+                    ["highlight", "highlightBottom"]
                 );
                 // domainObject, idPath, children, expanded
                 mockSwimlane.domainObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getCapability", "useCapability", "hasCapability" ]
+                    ["getId", "getCapability", "useCapability", "hasCapability"]
                 );
-                mockSwimlane.idPath = [ 'a', 'b' ];
-                mockSwimlane.children = [ {} ];
+                mockSwimlane.idPath = ['a', 'b'];
+                mockSwimlane.children = [{}];
                 mockSwimlane.expanded = true;
 
                 mockSwimlane.parent = {};
                 mockSwimlane.parent.idPath = ['a'];
                 mockSwimlane.parent.domainObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getCapability", "useCapability", "hasCapability" ]
+                    ["getId", "getCapability", "useCapability", "hasCapability"]
                 );
-                mockSwimlane.parent.children = [ mockSwimlane ];
+                mockSwimlane.parent.children = [mockSwimlane];
 
                 mockSwimlane.children[0].domainObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getCapability", "useCapability", "hasCapability" ]
+                    ["getId", "getCapability", "useCapability", "hasCapability"]
                 );
 
                 mockAction = jasmine.createSpyObj('action', ['perform']);
@@ -70,11 +70,11 @@ define(
 
                 mockOtherObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getCapability", "useCapability", "hasCapability" ]
+                    ["getId", "getCapability", "useCapability", "hasCapability"]
                 );
                 mockActionCapability = jasmine.createSpyObj("action", ["perform", "getActions"]);
                 mockPersistence = jasmine.createSpyObj("persistence", ["persist"]);
-                mockContext = jasmine.createSpyObj('context', [ 'getParent' ]);
+                mockContext = jasmine.createSpyObj('context', ['getParent']);
 
                 mockActionCapability.getActions.andReturn([mockAction]);
                 mockSwimlane.parent.domainObject.getId.andReturn('a');
@@ -145,7 +145,7 @@ define(
             });
 
             it("inserts into when highlighted", function () {
-                var testModel = { composition: [ 'c' ] };
+                var testModel = { composition: ['c'] };
                 mockSwimlane.highlight.andReturn(true);
                 handler.drop('d', mockOtherObject);
                 // Should have mutated
@@ -160,7 +160,7 @@ define(
             });
 
             it("inserts after as a peer when highlighted at the bottom", function () {
-                var testModel = { composition: [ 'x', 'b', 'y' ] };
+                var testModel = { composition: ['x', 'b', 'y'] };
                 mockSwimlane.highlightBottom.andReturn(true);
                 mockSwimlane.expanded = false;
                 handler.drop('d', mockOtherObject);
@@ -170,11 +170,11 @@ define(
                 // Run the mutator
                 mockSwimlane.parent.domainObject.useCapability.mostRecentCall
                     .args[1](testModel);
-                expect(testModel.composition).toEqual([ 'x', 'b', 'd', 'y']);
+                expect(testModel.composition).toEqual(['x', 'b', 'd', 'y']);
             });
 
             it("inserts into when highlighted at the bottom and expanded", function () {
-                var testModel = { composition: [ 'c' ] };
+                var testModel = { composition: ['c'] };
                 mockSwimlane.highlightBottom.andReturn(true);
                 mockSwimlane.expanded = true;
                 handler.drop('d', mockOtherObject);
@@ -184,11 +184,11 @@ define(
                 // Run the mutator
                 mockSwimlane.domainObject.useCapability.mostRecentCall
                     .args[1](testModel);
-                expect(testModel.composition).toEqual([ 'd', 'c' ]);
+                expect(testModel.composition).toEqual(['d', 'c']);
             });
 
             it("inserts after as a peer when highlighted at the bottom and childless", function () {
-                var testModel = { composition: [ 'x', 'b', 'y' ] };
+                var testModel = { composition: ['x', 'b', 'y'] };
                 mockSwimlane.highlightBottom.andReturn(true);
                 mockSwimlane.expanded = true;
                 mockSwimlane.children = [];
@@ -199,11 +199,11 @@ define(
                 // Run the mutator
                 mockSwimlane.parent.domainObject.useCapability.mostRecentCall
                     .args[1](testModel);
-                expect(testModel.composition).toEqual([ 'x', 'b', 'd', 'y']);
+                expect(testModel.composition).toEqual(['x', 'b', 'd', 'y']);
             });
 
             it("allows reordering within a parent", function () {
-                var testModel = { composition: [ 'x', 'b', 'y', 'd' ] };
+                var testModel = { composition: ['x', 'b', 'y', 'd'] };
 
                 mockSwimlane.highlightBottom.andReturn(true);
                 mockSwimlane.expanded = true;
@@ -220,7 +220,7 @@ define(
                 runs(function () {
                     mockSwimlane.parent.domainObject.useCapability.mostRecentCall
                         .args[1](testModel);
-                    expect(testModel.composition).toEqual([ 'x', 'b', 'd', 'y']);
+                    expect(testModel.composition).toEqual(['x', 'b', 'd', 'y']);
                 });
             });
 

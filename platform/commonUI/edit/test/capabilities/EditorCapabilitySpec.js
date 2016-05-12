@@ -36,18 +36,20 @@ define(
             beforeEach(function () {
                 mockPersistence = jasmine.createSpyObj(
                     "persistence",
-                    [ "persist" ]
+                    ["persist"]
                 );
                 mockEditableObject = {
-                    getModel: function () { return model; }
+                    getModel: function () {
+                        return model;
+                    }
                 };
                 mockDomainObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel", "getCapability", "useCapability" ]
+                    ["getId", "getModel", "getCapability", "useCapability"]
                 );
                 mockCache = jasmine.createSpyObj(
                     "cache",
-                    [ "saveAll", "markClean" ]
+                    ["saveAll", "markClean"]
                 );
                 mockCallback = jasmine.createSpy("callback");
 

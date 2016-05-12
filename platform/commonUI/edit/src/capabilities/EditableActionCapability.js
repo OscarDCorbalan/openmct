@@ -41,9 +41,9 @@ define(
         ) {
             var action = Object.create(actionCapability);
 
-            action.getActions = function(domainObject) {
-                return actionCapability.getActions(domainObject).filter(function(action){
-                   return DISALLOWED_ACTIONS.indexOf(action.getMetadata().key) === -1;
+            action.getActions = function (domainObject) {
+                return actionCapability.getActions(domainObject).filter(function (action) {
+                    return DISALLOWED_ACTIONS.indexOf(action.getMetadata().key) === -1;
                 });
             };
 

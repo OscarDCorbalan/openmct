@@ -94,7 +94,7 @@ define(
             editableObject = new EditableDomainObject(newObject, this.$q);
             editableObject.setOriginalObject(parentObject);
             editableObject.getCapability('status').set('editing', true);
-            editableObject.useCapability('mutation', function(model){
+            editableObject.useCapability('mutation', function (model) {
                 model.location = parentObject.getId();
             });
 
@@ -118,7 +118,7 @@ define(
          * @returns {CreateActionMetadata} metadata about this action
          */
         CreateAction.prototype.getMetadata = function () {
-           return this.metadata;
+            return this.metadata;
         };
 
         return CreateAction;

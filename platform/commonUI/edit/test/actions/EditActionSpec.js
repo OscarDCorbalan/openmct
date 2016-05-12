@@ -36,23 +36,23 @@ define(
             beforeEach(function () {
                 mockLocation = jasmine.createSpyObj(
                     "$location",
-                    [ "path" ]
+                    ["path"]
                 );
                 mockNavigationService = jasmine.createSpyObj(
                     "navigationService",
-                    [ "setNavigation", "getNavigation" ]
+                    ["setNavigation", "getNavigation"]
                 );
                 mockLog = jasmine.createSpyObj(
                     "$log",
-                    [ "error", "warn", "info", "debug" ]
+                    ["error", "warn", "info", "debug"]
                 );
                 mockDomainObject = jasmine.createSpyObj(
                     "domainObject",
-                    [ "getId", "getModel", "getCapability" ]
+                    ["getId", "getModel", "getCapability"]
                 );
                 mockType = jasmine.createSpyObj(
                     "type",
-                    [ "hasFeature" ]
+                    ["hasFeature"]
                 );
 
                 mockDomainObject.getCapability.andReturn(mockType);
